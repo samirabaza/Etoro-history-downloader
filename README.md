@@ -1,4 +1,6 @@
 # Etoro-history-downloader
+Adapted for Python3
+
 Simple python scrypt to download historical data from Etoro
 
 An example for downloading historical bitcoin data from social trading platform Etoro. In the code example, 480 periods of one hour close price are downloaded from Etoro. The data is plotted in a png file. 
