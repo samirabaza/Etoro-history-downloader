@@ -1,6 +1,6 @@
 #!/usr/bin/python
-########### Python 2.7 #############
-import httplib, urllib, base64, re
+########### Python 3.x #############
+import http.client, urllib, base64, re
 import matplotlib as mpl
 mpl.use('Agg')
 import matplotlib.pyplot as plt
@@ -75,12 +75,13 @@ def plotcoin(closeprice):
     plt.close(fig)    # close the figure
 
 
-conn = httplib.HTTPSConnection('candle.etoro.com')
+conn = http.client.HTTPSConnection('candle.etoro.com')
 # 480 is 480 periods of 1 hour, 100000 is Bitcoin
 conn.request("GET", "/candles/asc.json/OneHour/480/100000")
 response = conn.getresponse()
 data = response.read()
-a = data.split(',')
+b = f","
+a = str(data).split(b)
 closeprice = history(a)
 print(closeprice)
 conn.close()
